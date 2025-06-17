@@ -1,0 +1,17 @@
+---
+- name: Show Version en Juniper
+  hosts: Fusion-J1
+  gather_facts: no
+  vars:
+    ansible_network_os: junos
+
+  tasks:
+    - name: Run show version command
+      juniper_junos_command:
+        commands:
+          - show version
+      register: version_output
+
+    - name: Display version information
+      debug:
+        var: version_output.stdout
