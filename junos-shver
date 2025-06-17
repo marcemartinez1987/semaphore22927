@@ -7,7 +7,7 @@
 
   tasks:
     - name: Run show version command
-      juniper_junos_command:
+      junos_cli:
         commands:
           - show version
       register: version_output
